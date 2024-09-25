@@ -1,0 +1,345 @@
+body {
+    margin: 0;
+    background-color: rgb(180, 180, 180);
+    font-family: 'Arial', sans-serif;
+    overflow-y: scroll; /* Asegurar que siempre haya barra de desplazamiento */
+}
+
+/* Estilo de la barra de desplazamiento */
+::-webkit-scrollbar {
+    width: 10px; /* Ancho de la barra de desplazamiento */
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Color de fondo del track */
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(0, 0, 48); /* Color de la barra de desplazamiento */
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Color al pasar el mouse por encima */
+}
+
+/* Estilo de la barra de desplazamiento horizontal */
+::-webkit-scrollbar:horizontal {
+    height: 8px; /* Altura de la barra de desplazamiento horizontal */
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+    background: rgb(0, 0, 48);
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(0, 0, 48);
+    color: #fff;
+    padding: 6px 10px;
+    flex-direction: column;
+}
+@media (max-width: 991px) {
+    .navbar-brand > .visible-xs:not(#logo-small) {
+        margin-left: calc(42vw - 120px) !important;
+    }
+}
+@media (max-width: 768px) {
+    .navbar-brand > p {
+        text-align: right;
+        float: right;
+        margin-left: 50px;
+    }
+}
+
+@media (max-width: 991px) {
+    .navbar-brand > p {
+        position: relative;
+        margin: 0;
+    }
+}
+@media (max-width: 767px) {
+    .visible-xs {
+        display: block !important;
+    }
+}
+.navbar .logo img {
+    height: 40px;
+}
+
+.ini{
+    font-size: 20px;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 80px;
+}   
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding-left: 0;
+}
+
+.nav-links li a:hover {
+    border-left: 5px solid #f9f9f9;
+    border-right: 5px solid #f9f9f9;
+    color: #f0f0f0;
+    text-decoration: none;
+    transition: .3s ease-out all;
+}
+
+@media (min-width: 768px) {
+    .nav-links {
+        flex-direction: row;
+    }
+}
+
+.nav-links li {
+    margin-right: 10px;
+}
+
+.nav-links li a {
+    font-size: 17px;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 80px; /* Simplificado */
+}
+
+.search-form {
+    display: flex;
+}
+
+.search-form input[type="text"] {
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+}
+
+.search-form button {
+    padding: 1px 5px;
+    border-radius: 5px;
+    border: none;
+    background-color: #555;
+    color: #fff;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+#acercade {
+    color: #000;
+}
+
+#deacerca {
+    display: inline-block;
+}
+
+#acercade[href^="tel:"] {
+    display: flex;
+    align-items: center;
+}
+
+#acercade[href^="tel:"] i,
+#acercade[href^="mailto:"] i {
+    margin-right: 5px; 
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 70px);
+    margin-top: 20px;
+}
+
+.container {
+    text-align: center;
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 1300px;
+    margin: 0 auto;
+    flex-wrap: wrap; 
+}
+
+.container h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.container p {
+    font-size: 24px;
+    color: black;
+}
+
+.identificacion {
+    text-align: left;
+}
+
+li {
+    font-size: 24px;
+    text-align: start;
+}
+
+.logito {
+    width: 100px;
+    margin-bottom: 1rem;
+}
+
+section article {
+    background-color: #f0f0f0;
+    margin: 1rem 0;
+    border-radius: 0.5rem;
+    transition: all 0.3s;
+}
+
+section article:hover {
+    box-shadow: 0 0.1rem 0.4rem rgba(0, 0, 0, 3); 
+}
+
+section article h2 {
+    font-size: 30px;
+}
+
+section article h2, section article p {
+    margin: 1rem;
+}
+
+.containers {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.logitoo {
+    width: 70px;
+    height: 70px;
+}
+
+.derecha {
+    text-align: right;
+}
+
+.imgimg {
+    width: 700px;
+    height: 450px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    padding-left: 350px;
+}
+
+.center {
+    text-align: center;
+}
+
+.containers {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.tarjeta {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 10px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 0.5rem;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.tarjeta.visible {
+    opacity: 1;
+}
+
+.tarjeta.expandida {
+    width: 100%;
+    height: auto;
+}
+
+.tarjeta h2 {
+    margin-bottom: 10px;
+}
+
+.tarjeta .content {
+    margin-top: 10px;
+    display: none;
+}
+
+.tarjeta.expandida .content {
+    display: block;
+}
+
+.tarjeta-content {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .tarjeta {
+        width: 100%;
+    }
+
+    .tarjeta.expandida {
+        width: 100%;
+    }
+}
+
+li {
+    font-size: 24px;
+    text-align: start;
+    text-decoration: none;
+    list-style: none;
+}
+
+#lista {
+    list-style-type: none;
+}
+
+.tarjeta.hospital {
+    background-color: #dadada;
+}
+
+.tarjeta.aniversario-20 {
+    background: linear-gradient(to right, #dadada 50%, #dadada 50%);
+}
+
+.tarjeta.aniversario-50 {
+    background-color: #dadada;
+}

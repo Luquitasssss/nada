@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Truco - Juego Completo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: space-between;
+        }
+        .main-content {
+            width: 70%;
+        }
+        .card {
+            display: inline-block;
+            width: 100px;
+            height: 150px;
+            border: 2px solid #333;
+            border-radius: 10px;
+            margin: 10px;
+            background-color: white;
+            position: relative;
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            color: #000;
+        }
+        .card .value {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+        }
+        .card .suit {
+            font-size: 50px;
+            margin-top: 40px;
+        }
+        .espada {
+            color: black;
+        }
+        .basto {
+            color: green;
+        }
+        .oro {
+            color: gold;
+        }
+        .copa {
+            color: red;
+        }
+        .footer-value {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            transform: rotate(180deg);
+        }
+        #game-log {
+            margin-top: 20px;
+            max-width: 600px;
+            text-align: left;
+        }
+        .scoreboard {
+            width: 25%;
+            background-color: white;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            text-align: left;
+        }
+        .scoreboard h2 {
+            text-align: center;
+        }
+        .puntos {
+            display: flex;
+            margin-bottom: 10px;
+        }
+        .puntos div {
+            width: 20px;
+            height: 20px;
+            border: 1px solid black;
+            margin-right: 5px;
+        }
+        .linea {
+            width: 100%;
+            height: 2px;
+            background-color: black;
+            margin-bottom: 10px;
+        }
+        .actions {
+            margin: 20px 0;
+        }
+        .actions button {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-content">
+        <h1>Truco - Juego Completo</h1>
+        <div id="player-hand"></div>
+        <div class="actions">
+            <button onclick="cantarEnvido()">Envido</button>
+            <button onclick="cantarTruco()">Truco</button>
+            <button onclick="cantarFlor()">Flor</button>
+        </div>
+        <button onclick="iniciarRonda()">Iniciar Ronda</button>
+        <div id="game-log"></div>
+    </div>
+
+    <div class="scoreboard">
+        <h2>Marcador</h2>
+        <div class="section">
+            <strong>Computadora:</strong>
+            <div id="computadora-puntos"></div>
+        </div>
+        <div class="section">
+            <strong>Usted:</strong>
+            <div id="jugador-puntos"></div>
+        </div>
+    </div>
+
+    <script>
+        const cartas = [
+            { valor: 1, palo: 'Espada' }, { valor: 2, palo: 'Espada' }, { valor: 3, palo: 'Espada' }, { valor: 4, palo: 'Espada' }, { valor: 5, palo: 'Espada' }, { valor: 6, palo: 'Espada' }, { valor: 7, palo: 'Espada' }, { valor: 10, palo: 'Espada' }, { valor: 11, palo: 'Espada' }, { valor: 12, palo: 'Espada' },
+            { valor: 1, palo: 'Basto' }, { valor: 2, palo: 'Basto' }, { valor: 3, palo: 'Basto' }, { valor: 4, palo: 'Basto' }, { valor: 5, palo: 'Basto' }, { valor: 6, palo: 'Basto' }, { valor: 7, palo: 'Basto' }, { valor: 10, palo: 'Basto' }, { valor: 11, palo: 'Basto' }, { valor: 12, palo: 'Basto' },
+            { valor: 1, palo: 'Oro' }, { valor: 2, palo: 'Oro' }, { valor: 3, palo: 'Oro' }, { valor: 4, palo: 'Oro' }, { valor: 5, palo: 'Oro' }, { valor: 6, palo: 'Oro' }, { valor: 7, palo: 'Oro' }, { valor: 10, palo: 'Oro' }, { valor: 11, palo: 'Oro' }, { valor: 12, palo: 'Oro' },
+            { valor: 1, palo: 'Copa' }, { valor: 2, palo: 'Copa' }, { valor: 3, palo: 'Copa' }, { valor: 4, palo: 'Copa' }, { valor: 5, palo: 'Copa' }, { valor: 6, palo: 'Copa' }, { valor: 7, palo: 'Copa' }, { valor: 10, palo: 'Copa' }, { valor: 11, palo: 'Copa' }, { valor: 12, palo: 'Copa' }
+        ];
+
+        const jerarquia = {
+            "1 Espada": 14, "1 Basto": 13, "7 Espada": 12, "7 Oro": 11,
+            "3 Espada": 10, "3 Basto": 10, "3 Copa": 10, "3 Oro": 10,
+            "2 Espada": 9, "2 Basto": 9, "2 Copa": 9, "2 Oro": 9,
+            "1 Copa": 8, "1 Oro": 8,
+            "12 Espada": 7, "12 Basto": 7, "12 Copa": 7, "12 Oro": 7,
+            "11 Espada": 6, "11 Basto": 6, "11 Copa": 6, "11 Oro": 6,
+            "10 Espada": 5, "10 Basto": 5, "10 Copa": 5, "10 Oro": 5,
+            "7 Basto": 4, "7 Copa": 4,
+            "6 Espada": 3, "6 Basto": 3, "6 Copa": 3, "6 Oro": 3,
+            "5 Espada": 2, "5 Basto": 2, "5 Copa": 2, "5 Oro": 2,
+            "4 Espada": 1, "4 Basto": 1, "4 Copa": 1, "4 Oro": 1
+        };
+
+        let manoJugador = [];
+        let manoComputadora = [];
+        let logJuego = document.getElementById('game-log');
+        let turnoJugador = true;
+        let puntosJugador = 0;
+        let puntosComputadora = 0;
+        let envidoCantado = false;
+        let trucoCantado = false;
+        let florCantada = false;
+
+        // Función para repartir cartas
+        function repartir() {
+            manoJugador = [];
+            manoComputadora = [];
+            let baraja = [...cartas];
+            for (let i = 0; i < 3; i++) {
+                let cartaJugador = baraja.splice(Math.floor(Math.random() * baraja.length), 1)[0];
+                let cartaComputadora = baraja.splice(Math.floor(Math.random() * baraja.length), 1)[0];
+                manoJugador.push(cartaJugador);
+                manoComputadora.push(cartaComputadora);
+            }
+            mostrarManoJugador();
+        }
+
+        // Función para mostrar la mano del jugador
+        function mostrarManoJugador() {
+            const manoDiv = document.getElementById('player-hand');
+            manoDiv.innerHTML = '';
+            manoJugador.forEach((carta, index) => {
+                const cardDiv = document.createElement('div');
+                cardDiv.classList.add('card');
+                cardDiv.innerHTML = `<div class="value">${carta.valor}</div>
+                                     <div class="suit ${carta.palo.toLowerCase()}">${mostrarSimboloPalo(carta.palo)}</div>`;
+                cardDiv.onclick = () => jugarCarta(index);
+                manoDiv.appendChild(cardDiv);
+            });
+        }
+
+        // Función para mostrar el símbolo del palo
+        function mostrarSimboloPalo(palo) {
+            switch (palo) {
+                case 'Espada': return '🗡️';
+                case 'Basto': return '🌿';
+                case 'Oro': return '🟡';
+                case 'Copa': return '🍷';
+            }
+        }
+
+        // Función para iniciar una ronda
+        function iniciarRonda() {
+            repartir();
+            envidoCantado = false;
+            trucoCantado = false;
+            florCantada = false;
+            if (!turnoJugador) {
+                logJuego.innerHTML += "La computadora empieza la ronda.<br>";
+                setTimeout(jugarTurnoComputadora, 1000);
+            } else {
+                logJuego.innerHTML += "El jugador empieza la ronda.<br>";
+            }
+        }
+
+        // Función para cantar Envido
+        function cantarEnvido() {
+            if (!envidoCantado && !trucoCantado) {
+                envidoCantado = true;
+                logJuego.innerHTML += "Jugador canta Envido.<br>";
+                // Aquí se puede agregar lógica para la aceptación del Envido y comparar los tantos
+            }
+        }
+
+        // Función para cantar Truco
+        function cantarTruco() {
+            if (!trucoCantado) {
+                trucoCantado = true;
+                logJuego.innerHTML += "Jugador canta Truco.<br>";
+                // Aquí se puede agregar lógica para la aceptación del Truco
+            }
+        }
+
+        // Función para cantar Flor
+        function cantarFlor() {
+            if (!florCantada) {
+                florCantada = true;
+                logJuego.innerHTML += "Jugador canta Flor.<br>";
+                // Aquí se puede agregar lógica para verificar si el jugador o la computadora tienen Flor
+            }
+        }
+
+        // Función para jugar el turno de la computadora
+        function jugarTurnoComputadora() {
+            if (manoComputadora.length === 0) {
+                logJuego.innerHTML += "Fin de la ronda.<br>";
+                return;
+            }
+            const cartaComputadora = manoComputadora.splice(Math.floor(Math.random() * manoComputadora.length), 1)[0];
+            logJuego.innerHTML += `Computadora juega: ${cartaComputadora.valor} de ${cartaComputadora.palo}<br>`;
+            turnoJugador = true;
+            mostrarManoJugador();
+        }
+
+        // Función para jugar una carta del jugador
+        function jugarCarta(indice) {
+            const cartaJugador = manoJugador[indice];
+            const cartaComputadora = manoComputadora.splice(Math.floor(Math.random() * manoComputadora.length), 1)[0];
+            logJuego.innerHTML += `Jugador juega: ${cartaJugador.valor} de ${cartaJugador.palo}<br>`;
+            logJuego.innerHTML += `Computadora juega: ${cartaComputadora.valor} de ${cartaComputadora.palo}<br>`;
+
+            let jugadorGana = compararCartas(cartaJugador, cartaComputadora);
+            if (jugadorGana) {
+                logJuego.innerHTML += "Jugador gana la mano.<br>";
+                puntosJugador++;
+            } else {
+                logJuego.innerHTML += "Computadora gana la mano.<br>";
+                puntosComputadora++;
+            }
+
+            actualizarPuntos();
+            manoJugador.splice(indice, 1);
+
+            if (manoJugador.length === 0) {
+                logJuego.innerHTML += "Fin de la ronda.<br>";
+                iniciarRonda();
+            } else {
+                mostrarManoJugador();
+            }
+        }
+
+        // Función para comparar las cartas
+        function compararCartas(carta1, carta2) {
+            const carta1Key = `${carta1.valor} ${carta1.palo}`;
+            const carta2Key = `${carta2.valor} ${carta2.palo}`;
+            const valorCarta1 = jerarquia[carta1Key] || 0;
+            const valorCarta2 = jerarquia[carta2Key] || 0;
+            return valorCarta1 > valorCarta2;
+        }
+
+        // Función para actualizar el marcador
+        function actualizarPuntos() {
+            const computadoraPuntosDiv = document.getElementById('computadora-puntos');
+            const jugadorPuntosDiv = document.getElementById('jugador-puntos');
+
+            computadoraPuntosDiv.innerHTML = '';
+            jugadorPuntosDiv.innerHTML = '';
+
+            const maximoPorFila = 15;
+            dibujarPuntos(puntosComputadora, computadoraPuntosDiv, maximoPorFila);
+            dibujarPuntos(puntosJugador, jugadorPuntosDiv, maximoPorFila);
+        }
+
+        // Función para dibujar puntos (palos de 5) y la línea cuando llegan a 15
+        function dibujarPuntos(puntos, container, maximoPorFila) {
+            const filas = Math.ceil(puntos / 5);
+
+            for (let i = 0; i < filas; i++) {
+                const puntosFila = Math.min(5, puntos - i * 5);
+                const filaDiv = document.createElement('div');
+                filaDiv.className = 'puntos';
+
+                for (let j = 0; j < puntosFila; j++) {
+                    const punto = document.createElement('div');
+                    filaDiv.appendChild(punto);
+                }
+
+                container.appendChild(filaDiv);
+
+                // Si llegan a 15 puntos, dibujar la línea
+                if ((i + 1) * 5 === maximoPorFila) {
+                    const linea = document.createElement('div');
+                    linea.className = 'linea';
+                    container.appendChild(linea);
+                }
+            }
+        }
+
+        iniciarRonda();
+    </script>
+</body>
+</html>

@@ -1,0 +1,210 @@
+body {
+    margin: 0;
+    background-color: rgb(180, 180, 180);
+    font-family: 'Arial', sans-serif;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(0, 0, 48);
+    color: #fff;
+    padding: 6px 10px;
+    flex-direction: column;
+}
+@media (max-width: 991px) {
+    .navbar-brand > .visible-xs:not(#logo-small) {
+        margin-left: calc(42vw - 120px) !important;
+    }
+}
+@media (max-width: 768px) {
+    .navbar-brand > p {
+        text-align: right;
+        float: right;
+        margin-left: 50px;
+    }
+}
+
+@media (max-width: 991px) {
+    .navbar-brand > p {
+        position: relative;
+        margin: 0;
+    }
+}
+@media (max-width: 767px) {
+    .visible-xs {
+        display: block !important;
+    }
+}
+.navbar .logo img {
+    height: 40px;
+}
+
+.ini{
+    font-size: 20px;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 80px;
+}   
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding-left: 0;
+}
+
+.nav-links li a:hover {
+    border-left: 5px solid #f9f9f9;
+    border-right: 5px solid #f9f9f9;
+    color: #f0f0f0;
+    text-decoration: none;
+    transition: .3s ease-out all;
+}
+
+@media (min-width: 768px) {
+    .nav-links {
+        flex-direction: row;
+    }
+}
+
+.nav-links li {
+    margin-right: 10px;
+}
+
+.nav-links li a {
+    font-size: 17px;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 80px; /* Simplificado */
+}
+
+.search-form {
+    display: flex;
+}
+
+.search-form input[type="text"] {
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+}
+
+.search-form button {
+    padding: 1px 5px;
+    border-radius: 5px;
+    border: none;
+    background-color: #555;
+    color: #fff;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+#acercade {
+    color: #000;
+}
+
+#deacerca {
+    display: inline-block;
+}
+
+#acercade[href^="tel:"] {
+    display: flex;
+    align-items: center;
+}
+
+#acercade[href^="tel:"] i,
+#acercade[href^="mailto:"] i {
+    margin-right: 5px; 
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 70px); /* Adjust height based on navbar height */
+    margin-top: 20px;
+    padding: 0 15px; /* Add padding for mobile devices */
+}
+
+.container {
+    text-align: center;
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Ensure the container takes full width on mobile */
+    max-width: 500px; /* Add max width for larger screens */
+}
+
+.logito {
+    width: 100px;
+    margin-bottom: 1rem;
+}
+
+.container h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.container p {
+    font-size: 1.2rem;
+    color: #666;
+}
+
+li {
+    font-size: 24px;
+    text-align: start;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+    .navbar .nav-links li a {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .navbar .search-form {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .navbar .search-form input[type="text"] {
+        width: 100%;
+        margin-right: 10px;
+    }
+
+    .navbar .search-form button {
+        width: 100%;
+        margin-top: 10px;
+    }
+}

@@ -1,0 +1,228 @@
+body {
+    margin: 0;
+    background-color: rgb(180, 180, 180);
+    font-family: 'Arial', sans-serif;
+    max-width: 1357px;
+    margin: 0 auto; 
+}
+
+::-webkit-scrollbar {
+    width: 10px; /* Ancho de la barra de desplazamiento */
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Color de fondo del track */
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(0, 0, 48); /* Color de la barra de desplazamiento */
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Color al pasar el mouse por encima */
+}
+
+/* Estilo de la barra de desplazamiento horizontal */
+::-webkit-scrollbar:horizontal {
+    height: 8px; /* Altura de la barra de desplazamiento horizontal */
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+    background: rgb(0, 0, 48);
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(0, 0, 48);
+    color: #fff;
+    padding: 6px 10px;
+    flex-direction: column;
+}
+@media (max-width: 991px) {
+    .navbar-brand > .visible-xs:not(#logo-small) {
+        margin-left: calc(42vw - 120px) !important;
+    }
+}
+@media (max-width: 768px) {
+    .navbar-brand > p {
+        text-align: right;
+        float: right;
+        margin-left: 50px;
+    }
+}
+
+@media (max-width: 991px) {
+    .navbar-brand > p {
+        position: relative;
+        margin: 0;
+    }
+}
+@media (max-width: 767px) {
+    .visible-xs {
+        display: block !important;
+    }
+}
+.navbar .logo img {
+    height: 40px;
+}
+
+.ini{
+    font-size: 20px;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 80px;
+}   
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding-left: 0;
+}
+
+ .nav-links li a:hover {
+    border-left: 5px solid #f9f9f9;
+    border-right: 5px solid #f9f9f9;
+    color: #f0f0f0;
+    text-decoration: none;
+    transition: .3s ease-out all;
+} 
+
+@media (min-width: 768px) {
+    .nav-links {
+        flex-direction: row;
+    }
+}
+
+.nav-links li {
+    margin-right: 10px;
+}
+
+.nav-links li a {
+    font-size: 17px;
+    color: #fff;
+    text-decoration: none;
+    padding: 0px 60px; /* Simplificado */
+}
+
+.search-form {
+    display: flex;
+}
+
+.search-form input[type="text"] {
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+}
+
+.search-form button {
+    padding: 1px 5px;
+    border-radius: 5px;
+    border: none;
+    background-color: #555;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* Estilo para el dropdown */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    max-width: 757px; /* Ancho máximo para evitar que se expanda de más */
+}
+
+.dropdown-content {
+    display: none;
+    padding: 5px 17px;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 16x;
+    max-width: 190px; /* Ancho máximo para evitar que el contenido se expanda de más */
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+    overflow-wrap: break-word; /* Asegura que el texto largo se ajuste y no desborde */
+}
+
+.dropdown-content a {
+    color: black;
+    /* padding: 12px 16px; */
+    text-decoration: none;
+    display: block;
+    /* word-wrap: break-word; Asegura que el texto largo se ajuste */
+    text-align: center;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Estilos específicos para el id "acercade" */
+#acercade {
+    color: #000;
+    max-width: 757px; /* Limita el ancho */
+}
+
+#deacerca {
+    display: inline-block;
+}
+
+#acercade[href^="tel:"] {
+    display: flex;
+    align-items: center;
+}
+
+#acercade[href^="tel:"] i,
+#acercade[href^="mailto:"] i {
+    margin-right: 5px; 
+}
+
+/* Estilos responsivos */
+@media (max-width: 767px) {
+    #acercade {
+        display: block !important;
+        max-width: 100%; /* En pantallas pequeñas, se ajusta al ancho disponible */
+    }
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 70px); /* Adjust height based on navbar height */
+    margin-top: 20px;
+}
+
+.container {
+    
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.logito {
+    width: 100px;
+    margin-bottom: 1rem;
+}
+
+.container h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.container p {
+    font-size: 1.2rem;
+    color: #666;
+}
+li {
+    font-size: 24px;
+    text-align: start;
+}

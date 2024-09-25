@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EEST N°1</title>
+    <link rel="icon" href="logo.ico">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style_ins.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        input[type="text"], input[type="date"], input[type="number"] {
+            width: 100%;
+            padding: 5px;
+            margin: 2px 0;
+            box-sizing: border-box;
+        }
+        input[type="checkbox"] {
+            margin: 0 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="inscripcion.html" class="ini">Inscripcion</a>
+            </div>
+                <ul class="nav-links">
+                <li><a href="/Inicio/inicio.html">Inicio</a></li>
+                <li><a href="/Historia/historia.html">Historia</a></li>
+                <li><a href="/Formación/formacion.html">Formación</a></li>
+                <li><a href="https://disorweb.website/">Biblioteca</a></li>
+                <li><a href="/Reinscripción/reinscripcion.html">Reinscripción</a></li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn" id="deacerca">Acerca de</a>
+                    <div class="dropdown-content">
+                        <a href="tel:+542241425897" id="acercade">Llamar</a>
+                        <a href="mailto:info@example.com" id="acercade">Email</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <!-- <div class="container" id="formulario1">
+        <form id="form1">
+            <fieldset>
+                <legend>Datos Estudiante</legend>
+                <div class="form-group">
+                    <label for="apellido">Apellido/s:</label>
+                    <input class="apelli" type="text" id="apellido" name="apellido" required>
+                </div>
+                <div class="form-group">
+                    <label for="nombre">Nombre/s:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
+                <div class="form-group">
+                    <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
+                    <input type="date" id="fecha_nacimiento" required name="fecha_nacimiento" min="1930-01-01" max="<?php echo date('Y-m-d');?>" >
+                </div>
+                <div class="form-group">
+                    <p>¿Posee DNI argentino?</p>
+                    <input type="radio" id="dni-si-fisico" name="dni" value="si-fisico">
+                    <label for="dni-si-fisico">Sí, y tiene el DNI físico</label>
+                    <input type="radio" id="dni-si-no-fisico" name="dni" value="si-no-fisico">
+                    <label for="dni-si-no-fisico">Sí, pero NO tiene el DNI físico y se encuentra en trámite</label>
+                    <input type="radio" id="dni-no-tramite" name="dni" value="no-tramite">
+                    <label for="dni-no-tramite">Sí, pero NO tiene el DNI físico y NO se encuentra en trámite</label>
+                    <input type="radio" id="dni-no-argentino" name="dni" value="no-argentino">
+                    <label for="dni-no-argentino">NO posee DNI argentino</label>
+                </div>
+                <div class="form-group">
+                    <label for="dni-numero">Si respondió Sí, indique número de DNI argentino:</label>
+                    <input type="text" id="dni-numero" name="dni-numero">
+                </div>
+                <div class="form-group">
+                    <label for="cuil">CUIL:</label>
+                    <input type="text" id="cuil" name="cuil">
+                </div>
+                <div class="form-group">
+                    <label for="certificado-pid">¿Posee Certificado de Pre-Identificación (CPI)?</label>
+                    <input type="radio" id="cpi-si" name="certificado-pid" value="si">
+                    <label for="cpi-si">Sí</label>
+                    <input type="radio" id="cpi-no" name="certificado-pid" value="no">
+                    <label for="cpi-no">No</label>
+                </div>
+                <div class="form-group">
+                    <label for="genero">Identidad de género:</label>
+                    <select id="genero" name="genero">
+                        <option value="mujer">Mujer</option>
+                        <option value="mujer-trans-travesti">Mujer trans / travesti</option>
+                        <option value="varon">Varón</option>
+                        <option value="varon-trans-masculinidad-trans">Varón trans / Masculinidad trans</option>
+                        <option value="no-binario">No binario</option>
+                        <option value="otro">Otra identidad / Prefiere no decir</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="nacimiento">Lugar de nacimiento:</label>
+                    <input type="radio" id="nacimiento-argentina" name="nacimiento" value="argentina">
+                    <label for="nacimiento-argentina">En Argentina</label>
+                    <input type="radio" id="nacimiento-extranjero" name="nacimiento" value="extranjero">
+                    <label for="nacimiento-extranjero">En el extranjero</label>
+                </div>
+                <div class="form-group">
+                    <label for="nacionalidad">Nacionalidad:</label>
+                    <input type="text" id="nacionalidad" name="nacionalidad">
+                </div>
+                <div class="form-group">
+                    <p>Solo para los que marcaron Argentina</p>
+                    <label for="provincia">Provincia: </label>
+                    <label for="bs-as">Buenos Aires</label>
+                    <input type="checkbox" id="bs-as">
+                    <label for="otra">Otra</label>
+                    <input type="checkbox" id="otra">
+                    <label for="otra-1">(Especificar)</label>
+                    <input type="text" id="otra-1">
+                </div>
+                <div class="form-group">
+                    <p>Solo para los que marcaron Buenos Aires</p>
+                    <label for="distrito">Distrito:</label>
+                    <input type="text" name="distrito" id="">
+                    <label for="localidad">Localidad:</label>
+                    <input type="text" name="localidad" id="">
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Domicilio</legend>
+                <div class="form-group">
+                    <label for="calle">Calle:</label>
+                    <input type="text" id="calle" name="calle">
+                </div>
+                <div class="form-group">
+                    <label for="entre-calle">Entre calle:</label>
+                    <input type="text" id="entre-calle" name="entre-calle">
+                </div>
+                <div class="form-group">
+                    <label for="numero">N°:</label>
+                    <input type="text" id="numero" name="numero">
+                </div>
+                <div class="form-group">
+                    <label for="piso">Piso:</label>
+                    <input type="text" id="piso" name="piso">
+                </div>
+                <div class="form-group">
+                    <label for="depto">Depto.:</label>
+                    <input type="text" id="depto" name="depto">
+                </div>
+                <div class="form-group">
+                    <label for="provincia">Provincia:</label>
+                    <input type="text" id="provincia" name="provincia">
+                </div>
+                <div class="form-group">
+                    <label for="distrito">Distrito:</label>
+                    <input type="text" id="distrito" name="distrito">
+                </div>
+                <div class="form-group">
+                    <label for="telefono">Teléfono:</label>
+                    <input type="text" id="telefono" name="telefono">
+                </div>
+                <div class="form-group">
+                    <label for="celular">Teléfono celular:</label>
+                    <input type="text" id="celular" name="celular">
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Otros Datos</legend>
+                <div class="form-group">
+                    <label for="hermanos">Hermanos o hermanas:</label>
+                    <input type="radio" id="hermanos-si" name="hermanos" value="si">
+                    <label for="hermanos-si">Sí</label>
+                    <input type="radio" id="hermanos-no" name="hermanos" value="no">                            
+                    <label for="hermanos-no">No</label>
+                </div>
+                <div class="form-group">
+                    <label for="hermanos-cantidad">Cantidad que asiste a este establecimiento:</label>
+                    <input type="text" id="hermanos-cantidad" name="hermanos-cantidad">
+                </div>
+                <div class="form-group">
+                    <label for="lengua">¿Se hablan lenguas distintas al castellano en el hogar?</label>
+                    <input type="radio" id="lengua-si" name="lengua" value="si">
+                    <label for="lengua-si">Sí</label>
+                    <input type="radio" id="lengua-no" name="lengua" value="no">
+                    <label for="lengua-no">No</label>
+                </div>
+                <div class="form-group">
+                    <label for="lengua-indigena">Lenguas indígenas:</label>
+                    <input type="text" id="lengua-indigena" name="lengua-indigena">
+                </div>
+                <div class="form-group">
+                    <label for="lengua-otra">Otras lenguas:</label>
+                    <input type="text" id="lengua-otra" name="lengua-otra">
+                </div>
+                <div class="form-group">
+                    <label for="pueblos">¿Se reconoce perteneciente o descendiente de Pueblos Originarios?</label>
+                    <input type="radio" id="pueblos-si" name="pueblos" value="si">
+                    <label for="pueblos-si">Sí</label>
+                    <input type="radio" id="pueblos-no" name="pueblos" value="no">
+                    <label for="pueblos-no">No</label>
+                </div>
+                <div class="form-group">
+                    <label for="asignacion">Percibe:</label>
+                    <input type="checkbox" id="auh" name="asignacion" value="auh">
+                    <label for="auh">Asignación Universal por Hijo (AUH)</label>
+                    <input type="checkbox" id="progresar" name="asignacion" value="progresar">
+                    <label for="progresar">Progresar</label>
+                </div>
+                <div class="form-group">   
+                    <label for="transporte">Medio de transporte que utiliza para llegar al establecimiento:</label>
+                    
+                        <input type="checkbox" id="transporte-pie" name="transporte" value="A pie/Bicicleta">
+                        <label for="transporte-pie">A pie/Bicicleta</label>
+                        <input type="checkbox" id="dgcye" name="dgcye" value="dgcye">
+                        <label for="dgcye">Transporte escolar DGCyE</label>
+                        <input type="checkbox" id="transporte-colectivo" name="transporte" value="colectivo">
+                        <label for="transporte-colectivo">Colectivo</label>
+                </div>
+                <div class="form-group-red">
+                        <input type="checkbox" id="transporte-tren" name="transporte" value="tren">
+                        <label for="transporte-tren">Tren</label>
+                        <input type="checkbox" id="transporte-particular" name="transporte" value="transporte-particular">
+                        <label for="transporte-particular">Vehiculo particular</label>
+                        <input type="checkbox" id="transporte-taxi" name="transporte" value="transporte-taxi">
+                        <label for="transporte-taxi">taxi/remis</label>           
+                </div>           
+                
+                <div class="form-group">
+                    <label for="años">Contestan estudiantes de 14 años y más: </label>
+                    <input type="checkbox" name="años" id="años-estudiantes">
+                    <label for="años-estudiantes">¿Tiene hijas o hijos menores de 3 años?</label>
+                    <input type="checkbox" name="años" id="maternales">
+                    <label for="maternales">¿Asisten a una sala de Proyecto de Salas Maternales?</label>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Informacion de salud</legend>
+                <div class="form-group">
+                    <div>
+                        <label for="obra_social">¿Posee obra social?</label>
+                        <label><input type="radio" name="obra_social" value="si">Si</label>
+                        <label><input type="radio" name="obra_social" value="no">No</label>
+                        <label for="nombre_obra_social">En caso de ser afirmativo. Obra social: </label>
+                        <input type="text" name="nombre_obra_social">
+                        <label for="numero_afiliado">N° afiliado: </label>
+                        <input type="number" name="numero_afiliado">
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Antecedentes personales de salud</legend>
+                <div class="form-group">
+                    <label>Padece o ha padecido alguna o algunas de las siguientes condiciones de salud?</label>
+                </div>
+                <div class="form-group">
+                    <label>Asma/broncoespasmos a repeticion<input type="checkbox" name="asma" id="asma"></label>
+                    <label>Celiaca<input type="checkbox" name="celiaca" id="celiaca"></label>
+                    <label>Problemas/Condiciones cardiacas<input type="checkbox" name="problemas_cardiacos" id="problemas_cardiacos"></label>
+                    <label>Presion arterial elevada<input type="checkbox" name="presion_arterial" id="presion_arterial"></label>
+                    <label>Comvulsiones<input type="checkbox" name="comvulsiones" id="comvulsiones"></label>
+                </div>
+                <div class="form-group">
+                    <label>Alteraciones sanguineas<input type="checkbox" name="alteraciones_sanguineas" id="alteraciones_sanguineas"></label>
+                    <label>Quemaduras moderadas o severas<input type="checkbox" name="quemaduras" id="quemaduras"></label>
+                    <label>Falta o no funcionamiento de algun organo<input type="checkbox" name="falta_organos" id="falta_organos"></label>
+                    <label>Enfermedad oncohematologica<input type="checkbox" name="enfermedad_oncohematologica" id="enfermedad_oncohematologica"></label>
+                    <label>Inmunodeficiencias<input type="checkbox" name="inmunodeficiencias" id="inmunodeficiencias"></label>
+                </div>
+                <div class="form-group">
+                    <label>Fracturas, luxaciones, lesiones ligamentarias previas<input type="checkbox" name="fracturas" id="fracturas"></label>
+                    <label>Otro problema en los huesos o articulaciones<input type="checkbox" name="problemas_huesos" id="problemas_huesos"></label>
+                    <label>Traumatismo de craneo que haya requerido observacion por guardia o internacion<input type="checkbox" name="traumatismo_craneo" id="traumatismo_craneo"></label>
+                    <label>Problemas de ojos<input type="checkbox" name="problemas_ojos" id="problemas_ojos"></label>
+                    <label>Problemas de piel<input type="checkbox" name="problemas_piel" id="problemas_piel"></label>
+                </div>
+            </fieldset>
+            <button type="button" onclick="mostrarFormulario2()">Siguiente</button>
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+    <div class="container" id="formulario2" style="display: none;">
+        <form id="form2">
+            <fieldset>
+                <legend>En relacion con el ejercicio (durante o despues), ha padecido alguna vez:</legend>
+                <div class="form-group-red">
+                    <label>Desmayos<input type="checkbox" name="desmayos" id="desmayos"></label>
+                    <label>Dolor fuerte en el pecho<input type="checkbox" name="dolor_fuerte" id="dolor_fuerte"></label>
+                    <label>Mareos<input type="checkbox" name="mareos" id="mareos"></label>
+                </div>    
+                <div class="form-group-red">
+                    <label>Mayor cansancio que sus compañeros o compañeras <input type="checkbox" name="cansancio" id="cansancio"></label>
+                    <label>Palpitaciones<input type="checkbox" name="palpitaciones" id="palpitaciones"></label>
+                    <label>Dificultad para respirar durante o despues de la actividad fisica <input type="checkbox" name="dificultad_respirar id="dificultad_respirar"></label>
+                </div>
+                <div class="form-group">
+                    <label>Tuvo alguna internacion? (marcar si su respuesta es afirmativa)</label>
+                    <label>Internacion comun<input type="checkbox" name="comun" id="comun"></label>
+                    <label>Internacion en la sala de cuidados intermedio/intensivos<input type="checkbox" name="sala_cuidados" id="sala_cuidados"></label>
+                    <label>Cuantas veces? <input type="number" name="cuantas_veces" id="cuantas_veces"></label>
+                </div>
+                <div class="form-group">
+                    <label>¿Padece o ha padecido algun tipo de alergia grave? <input type="checkbox"> (si es afirmativo de que tipo?)</label>
+                    <label>Medicamentos <input type="checkbox"> ¿Requerió internación? <input type="checkbox" name="" id="">¿Cuantas veces? <input type="text"> Indique la/s causa/s o diagnostico/s</label>
+                    <label>Vacunas <input type="checkbox"> ¿Requirió internación? <input type="checkbox" name="" id="">¿Cuantas veces? <input type="text"> Indique la/s causa/s o diagnostico/s</label>
+                    <label>Mareos <input type="checkbox"> ¿Requerió internación? <input type="checkbox" name="" id="">¿Cuantas veces? <input type="text"> Indique la/s causa/s o diagnostico/s</label>
+                </div>
+            </fieldset>
+            <button onclick="mostrarFormulario1()">Anterior</button>
+            <button type="submit">Enviar</button>
+        </form>
+    </div> -->
+    <div class="containere">
+        <form action="">
+            <fieldset>
+                <legend><p><b>Datos del estudiante</b></p></legend>
+                <div class="form-group">
+                    <table>
+                        <tr>
+                            <td>Apellido(s):</td>
+                            <td><input type="text" name="apellido"></td>
+                            <td>Nombre(s):</td>
+                            <td><input type="text" name="nombre"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="1">Fecha de Nacimiento:</td>
+                            <td colspan="3"><input type="date" name="fecha_nacimiento"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="1">¿Posee DNI argentino?</td>
+                            <td colspan="4"><input type="radio" name="dni_argentino" value="si_con_fisico"> Sí, y tiene el DNI físico<br>
+                                <input type="radio" name="dni_argentino" value="si_sin_fisico"> Sí, pero NO tiene el DNI físico<br>
+                                <input type="radio" name="dni_argentino" value="no"> No posee DNI argentino</td>
+                        </tr>
+                        <tr>
+                            <td>Si respondió Sí, indique número de DNI argentino:</td>
+                            <td><input type="text" name="dni_numero"></td>
+                            <td>CUIL:</td>
+                            <td><input type="text" name="cuil"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="4">Si respondió NO tiene DNI argentino:
+                                <input type="checkbox" name="cpip"> Posee Certificado de Pre-identificación (CPIP)<br>
+                                <input type="checkbox" name="doc_extranjero"> Posee documento extranjero, Tipo de doc.: 
+                                <input type="text" name="tipo_doc_extranjero"></td>
+                        </tr>
+                        <tr>
+                            <td>Identidad de género:</td>
+                            <td colspan="3"><input type="radio" name="genero" value="mujer"> Mujer
+                                <input type="radio" name="genero" value="varon"> Varón
+                                <input type="radio" name="genero" value="mujer_trans"> Mujer trans/travesti
+                                <input type="radio" name="genero" value="varon_trans"> Varón trans
+                                <input type="radio" name="genero" value="no_binario"> No binario
+                                <input type="radio" name="genero" value="no_responder"> No desea responder</td>
+                        </tr>
+                        <tr>
+                            <td>Lugar de nacimiento:</td>
+                            <td colspan="3"><input type="radio" name="lugar_nacimiento" value="argentina"> En Argentina
+                                <input type="radio" name="lugar_nacimiento" value="fuera_argentina"> Fuera de Argentina. País: 
+                                <input type="text" name="pais_nacimiento"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="4">
+                                Solo para quienes marcaron Buenos Aires: <input type="radio" name="buenos_aires" value="provincia"> Provincia de Buenos Aires
+                                <input type="radio" name="buenos_aires" value="ciudad"> Ciudad de Buenos Aires</td>
+                        </tr>
+                    </table>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend><p><b>Domicilio</b></p></legend>
+                <table>
+                    <tr>
+                        <td>Calle:</td>
+                        <td><input type="text" name="calle"></td>
+                        <td>Nº:</td>
+                        <td><input type="text" name="numero_calle"></td>
+                    </tr>
+                    <tr>
+                        <td>Entre calle:</td>
+                        <td><input type="text" name="entre_calle"></td>
+                        <td>Piso:</td>
+                        <td><input type="text" name="piso"></td>
+                    </tr>
+                    <tr>
+                        <td>Teléfono:</td>
+                        <td><input type="text" name="telefono"></td>
+                        <td>Celular:</td>
+                        <td><input type="text" name="celular"></td>
+                    </tr>
+                </table>
+            </fieldset>
+            <fieldset>
+                <legend><p><b>Otros Datos</b></p></legend>
+                <table>
+                    <tr>
+                        <td>Hermanos o hermanas que asisten a este establecimiento:</td>
+                        <td><input type="radio" name="hermanos" value="si"> Sí
+                            <input type="radio" name="hermanos" value="no"> No</td>
+                        <td>Cantidad:</td>
+                        <td><input type="number" name="cantidad_hermanos"></td>
+                    </tr>
+                    <tr>
+                        <td>¿Asistió a una sala del Proyecto de Salas Maternal?</td>
+                        <td><input type="radio" name="sala_maternal" value="si"> Sí
+                            <input type="radio" name="sala_maternal" value="no"> No</td>
+                    </tr>
+                    <tr>
+                        <td>Lengua/s indígena/s:</td>
+                        <td><input type="radio" name="lengua_indigena" value="si"> Sí
+                            <input type="radio" name="lengua_indigena" value="no"> No</td>
+                        <td>¿Cuál?:</td>
+                        <td><input type="text" name="lengua_indigena_cual"></td>
+                    </tr>
+                    <tr>
+                        <td>Percibe Asignación Universal por Hijo (AUH):</td>
+                        <td><input type="radio" name="auh" value="si"> Sí
+                            <input type="radio" name="auh" value="no"> No</td>
+                        <td>Percibe Progresar:</td>
+                        <td><input type="radio" name="progresar" value="si"> Sí
+                            <input type="radio" name="progresar" value="no"> No</td>
+                    </tr>
+                    <tr>
+                        <td>Medio de transporte que utiliza para llegar al establecimiento:</td>
+                        <td colspan="3">
+                            <input type="checkbox" name="transporte" value="a_pie"> A pie
+                            <input type="checkbox" name="transporte" value="transporte_escolar"> Transporte escolar
+                            <input type="checkbox" name="transporte" value="colectivo"> Colectivo
+                            <input type="checkbox" name="transporte" value="tren"> Tren
+                            <input type="checkbox" name="transporte" value="vehiculo_propio"> Vehículo particular
+                            <input type="checkbox" name="transporte" value="taxi_remis"> Taxi/Remis
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>¿Tiene hijos menores de 18 años?</td>
+                        <td><input type="radio" name="hijos_menores" value="si"> Sí
+                            <input type="radio" name="hijos_menores" value="no"> No</td>
+                    </tr>
+                </table>
+            </fieldset>
+            <fieldset>
+                <legend>Información de salud</legend>
+                <table>
+                    <tr>
+                        <td colspan="2">¿Posee obre social?</td>
+                        <td><input type="radio" name="obra_social" id="si_obra_social">Si
+                            <input type="radio" name="obra_social" id="no_obra_social">No</td>
+                        <td colspan="4">En caso afirmarivo. Obra social:</td>
+                        <td><input type="text" placeholder="nombre de obra social"></td>
+                        <td colspan="3">N° Afiliado</td>
+                        <td><input type="text" placeholder="Número de afiliado"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="12"><h3>Antecedentes personales de salud </h3></td>
+                    </tr>
+                    <tr>
+                        <td colspan="12"><h4>¿Padece o ha padecido alguna o algunas de las siguientes condiciones de salud?</h4></td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">Asma/Broncoespasmos a repetición</td>
+                        <td colspan="1"><input type="radio" name="asma" value="si_asma"> Sí</td>
+                        <td colspan="1"><input type="radio" name="asma" value="no_asma"> No</td>
+                        <td colspan="4">Falta o no funciona algún órgano</td>
+                        <td colspan="1"><input type="radio" name="organo" id="si_organo">Sí</td>
+                        <td colspan="1"><input type="radio" name="organo" id="no_organo">No</td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">Celiaquía</td>
+                        <td colspan="1"><input type="radio" name="celiaquia" id="si_celiaquia">Sí</td>
+                        <td colspan="1"><input type="radio" name="celiaquia" id="no_celiaquia">No</td>
+                        <td colspan="4">Enfermedad oncohematológica</td>
+                        <td colspan="1"><input type="radio" name="oncohematologia" id="si_oncohematologia">Si</td>
+                        <td colspan="1"><input type="radio" name="oncohematologia" id="no_oncohematologia">No</td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">Problemas/Condiciones cardíacas</td>
+                        <td colspan="1"><input type="radio" name="cardiaca" id="si_cardiaca">Si</td>
+                        <td colspan="1"><input type="radio" name="cardiaca" id="no_cardiaca">No</td>
+                        <td colspan="4">Inmunodeficiencias por enfermedad o medicamentos</td>
+                        <td colspan="1"><input type="radio" name="inmunodeficiencia" id="si_inmunodeficiencia">Si</td>
+                        <td colspan="1"><input type="radio" name="inmunodeficiencia" id="no_inmunodeficiencia">No</td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">Diabetes</td>
+                        <td colspan="1"><input type="radio" name="diabetes" id="si_diabetes">Si</td>
+                        <td colspan="1"><input type="radio" name="diabetes" id="no_diabetes">No</td>
+                        <td colspan="4">Fracturas, luxaciones, lesiones ligamentarias previas</td>
+                        <td colspan="1"><input type="radio" name="fracturas" id="si_fracturas">Si</td>
+                        <td colspan="1"><input type="radio" name="fracturas" id="no_fracturas">No</td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">Presión arterial elevada</td>
+                        <td colspan="1"><input type="radio" name="presion" id="si_presion">Si</td>
+                        <td colspan="1"><input type="radio" name="presion" id="no_presion">No</td>
+                        <td colspan="4">Otro problema en los huesos o articulaciones</td>
+                        <td colspan="1"><input type="radio" name="otro_hueso" id="si_otro_hueso">Si</td>
+                        <td colspan="1"><input type="radio" name="otro_hueso" id="no_otro_hueso">No</td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">Convulsiones</td>
+                        <td colspan="1"><input type="radio" name="convulsiones" id="si_convulsiones">Si</td>
+                        <td colspan="1"><input type="radio" name="convulsiones" id="no_convulsiones">No</td>
+                        <td colspan="4">Traumatismo de cráneo que haya requerido observación por guardiao internacion</td>
+                        <td colspan="1"><input type="radio" name="traumatismo" id="si_traumatismo">Si</td>
+                        <td colspan="1"><input type="radio" name="traumatismo" id="no_traumatismo">No</td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">Alteraciones sanguineas</td>
+                        <td colspan="1"><input type="radio" name="alteraciones" id="si_alteraciones">Si</td>
+                        <td colspan="1"><input type="radio" name="alteraciones" id="no_alteraciones">No</td>
+                        <td colspan="4">Problemas en la piel</td>
+                        <td colspan="1"><input type="radio" name="piel" id="si_piel">Si</td>
+                        <td colspan="1"><input type="radio" name="piel" id="no_piel">No</td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">Quemaduras moderadas o severas</td>
+                        <td colspan="1"><input type="radio" name="quemaduras" id="si_quemaduras">Si</td>
+                        <td colspan="1"><input type="radio" name="quemaduras" id="no_quemaduras">No</td>
+                        <td colspan="4">Mayor cansancio que sus compañeros o compañeras</td>
+                        <td colspan="1"><input type="radio" name="cansancio" id="si_cansancio">Si</td>
+                        <td colspan="1"><input type="radio" name="cansancio" id="no_cansancio">No</td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">Desmayos</td>
+                        <td colspan="1"><input type="radio" name="desmayos" id="si_desmayos">Si</td>
+                        <td colspan="1"><input type="radio" name="desmayos" id="no_desmayos">No</td>
+                        <td colspan="4">Palpitaciones</td>
+                        <td colspan="1"><input type="radio" name="palpitaciones" id="si_palpitaciones">Si</td>
+                        <td colspan="1"><input type="radio" name="palpitaciones" id="no_palpitaciones">No</td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">Dolor fuerte en el pecho</td>
+                        <td colspan="1"><input type="radio" name="pecho" id="si_pecho">Si</td>
+                        <td colspan="1"><input type="radio" name="pecho" id="no_pecho">No</td>
+                        <td colspan="4">Dificultad para respirar durante o despues de la actividad física</td>
+                        <td colspan="1"><input type="radio" name="dificultad" id="si_dificultad">Si</td>
+                        <td colspan="1"><input type="radio" name="dificultad" id="no_dificultad">No</td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">Mareos</td>
+                        <td colspan="1"><input type="radio" name="mareos" id="si_mareos">Si</td>
+                        <td colspan="1"><input type="radio" name="mareos" id="no_mareos">No</td>
+                    </tr>
+                    <tr>
+                        <td colspan="12">¿Tuvo alguna internacion?</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3"></td>
+                        <td colspan="3"></td>
+                        <td colspan="2">¿Cuantas veces?</td>
+                        <td colspan="5">Indique la/s causa/s o diagnostico/s</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">Internación en sala común</td>
+                        <td colspan="3">
+                            <input type="radio" name="comun" id="si_comun">Si
+                            <input type="radio" name="comun" id="no_comun">No
+                        </td>
+                        <td colspan="2"><input type="number" placeholder="Cuantas veces" name="cuantas_veces1" id="cuantas_veces"></td>
+                        <td colspan="5"><input type="text" placeholder="Diagnostico" name="diagnostico1" id="diagnostico1"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">Internación en sala de cuidados intermedios/intensivos</td>
+                        <td colspan="3">
+                            <input type="radio" name="intensivos" id="si_intensivos">Si
+                            <input type="radio" name="intensivos" id="no_intensivos">No
+                        </td>
+                        <td colspan="2"><input type="number" placeholder="Cuantas veces" name="cuantas_veces2" id="cuantas_veces2"></td>
+                        <td colspan="5"><input type="text" placeholder="Diagnostico" name="diagnostico2" id="diagnostico2"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="12">¿Padece o ha padecido algún tipo de alergia grave?    <input type="radio" name="grave" id="si_grave">Si  <input type="radio" name="grave" id="no_grave">No <p>      </p>  En caso afirmativo, ¿De qué tipo?</td>
+                    </tr>
+                    <tr>
+                        <td colspan="9"></td>
+                        <td colspan="1">Si</td>
+                        <td colspan="1">No</td>
+                        <td colspan="1">¿Requirió internación?</td>
+                    </tr>
+                    <tr>
+                        <td colspan="9">Medicamentos</td>
+                        <td colspan="1"><input type="radio" name="medicamentos" id="si_medicamentos"></td>
+                        <td colspan="1"><input type="radio" name="medicamentos" id="no_medicamentos"></td>
+                        <td colspan="1"><input type="radio" name="internacion" id="si_internacion">Si <input type="radio" name="internacion" id="no_internacion">No</td>
+                    </tr>             
+                    <tr>
+                        <td colspan="9">Vacunas</td>
+                        <td colspan="1"><input type="radio" name="vacunas" id="si_vacunas"></td>
+                        <td colspan="1"><input type="radio" name="vacunas" id="no_vacunas"></td>
+                        <td colspan="1"><input type="radio" name="internacion1" id="si_internacion1">Si <input type="radio" name="internacion1" id="no_internacion1">No</td>
+                    </tr> 
+                    <tr>
+                        <td colspan="9">Alimentos</td>
+                        <td colspan="1"><input type="radio" name="alimentos" id="si_alimentos"></td>
+                        <td colspan="1"><input type="radio" name="alimentos" id="no_alimentos"></td>
+                        <td colspan="1"><input type="radio" name="internacion2" id="si_internacion2">Si <input type="radio" name="internacion2" id="no_internacion2">No</td>
+                    </tr> 
+                    <tr>
+                        <td colspan="9">Picaduras de insectos</td>
+                        <td colspan="1"><input type="radio" name="picaduras" id="si_picaduras"></td>
+                        <td colspan="1"><input type="radio" name="picaduras" id="no_picaduras"></td>
+                        <td colspan="1"><input type="radio" name="internacion3" id="si_internacion3">Si <input type="radio" name="internacion3" id="no_internacion3">No</td>
+                    </tr> 
+                    <tr>
+                        <td colspan="9">Estacionales (Polen, ácaros, polvo, etc)</td>
+                        <td colspan="1"><input type="radio" name="estacionales" id="si_estacionales"></td>
+                        <td colspan="1"><input type="radio" name="estacionales" id="no_estacionales"></td>
+                        <td colspan="1"><input type="radio" name="internacion4" id="si_internacion4">Si <input type="radio" name="internacion4" id="no_internacion4">No</td>
+                    </tr> 
+                    <tr>
+                        <td colspan="9">Otras</td>
+                        <td colspan="1"><input type="radio" name="otras1" id="si_otras"></td>
+                        <td colspan="1"><input type="radio" name="otras1" id="no_otras"></td>
+                        <td colspan="1"><input type="radio" name="internacion5" id="si_internacion5">Si <input type="radio" name="internacion5" id="no_internacion5">No</td>
+                    </tr>
+                    <tr> 
+                        <td colspan="12"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">¿Tiene disminución auditiva?</td>
+                        <td colspan="1"><input type="radio" name="disminucion_a" id="si_disminucion_a">Si</td>
+                        <td colspan="1"><input type="radio" name="disminucion_a" id="no_disminucion_a">No</td>
+                        <td colspan="4">En caso afirmativo: ¿Usa audífonos?</td>
+                        <td colspan="1"><input type="radio" name="usa_a" id="si_usa_a">Si</td>
+                        <td colspan="1"><input type="radio" name="usa_a" id="no_usa_a">No</td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">¿Tiene disminución visual?</td>
+                        <td colspan="1"><input type="radio" name="disminucion_l" id="si_disminucion_l">Si</td>
+                        <td colspan="1"><input type="radio" name="disminucion_l" id="no_disminucion_l">No</td>
+                        <td colspan="4">En caso afirmativo: ¿Usa lentes?</td>
+                        <td colspan="1"><input type="radio" name="usa_l" id="si_usa_l">Si</td>
+                        <td colspan="1"><input type="radio" name="usa_l" id="no_usa_l">No</td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">¿Recibe de manera habitual algún tipo de medicación?</td>
+                        <td colspan="1"><input type="radio" name="recibe" id="si_recibe">Si</td>
+                        <td colspan="1"><input type="radio" name="recibe" id="no_recibe">No</td>
+                        <td colspan="4">En caso afirmativo, ¿Cuál?</td>
+                        <td colspan="2"> <input type="text" placeholder="Cual" name="cual" id="cual"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">¿Tuvo alguna operación?</td>
+                        <td colspan="1"><input type="radio" name="operacion" id="si_operacion">Si</td>
+                        <td colspan="1"><input type="radio" name="operacion" id="no_operacion">No</td>
+                        <td colspan="3">En caso afirmativo, ¿Por qué motivo?<input type="text" name="motivo" placeholder="Motivo" id="motivo"></td>
+                        <td colspan="2"></td>
+                        <td colspan="2">¿En que año?<input type="date" placeholder="¿En que año?" name="que_ano" id="que_ano"></td>
+                    </tr>
+                    <tr><td colspan="12"><h3>Antecedentes familiares de salud</h3></td></tr>
+                    <tr><td colspan="12">¿Algún familiar directo padece o ha padecido alguna o algunas de las siguientes condiciones de salud?</td></tr>
+                    <tr>
+                            <td colspan="4">Muerte súbita de un familiar directo menor de 50 años</td>
+                            <td colspan="1"><input type="radio" name="subita" value="si_subita"> Sí</td>
+                            <td colspan="1"><input type="radio" name="subita" value="no_subita"> No</td>
+                            <td colspan="4">Tos crónica</td>
+                            <td colspan="1"><input type="radio" name="tos_cronica" id="si_tos">Sí</td>
+                            <td colspan="1"><input type="radio" name="tos_cronica" id="no_tos">No</td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">Diabetes</td>
+                        <td colspan="1"><input type="radio" name="diabetes1" value="si_diabetes1"> Sí</td>
+                        <td colspan="1"><input type="radio" name="diabetes1" value="no_diabetes1"> No</td>
+                        <td colspan="4">Celiquía</td>
+                        <td colspan="1"><input type="radio" name="celiaquia1" id="si_celiaquia1">Sí</td>
+                        <td colspan="1"><input type="radio" name="celiaquia1" id="no_celiaquia1">No</td>
+                </tr>
+                <tr>
+                    <td colspan="4">Problemas cardíacos</td>
+                    <td colspan="1"><input type="radio" name="problemas_car1" value="si_problemas_car1"> Sí</td>
+                    <td colspan="1"><input type="radio" name="problemas_car1" value="no_problemas_car1"> No</td>
+                </tr>
+                </table>
+            </fieldset>
+            <fieldset>
+                <legend>Datos del establecimiento en que se inscribe</legend>
+                <table>
+                    <tr>
+                        <td>Distrito</td>
+                        <td><input type="text" name="distrito1" placeholder="Distrito del establecimiento" id="distrito_escuela"></td>
+                        <td>Sector de gestión:</td>
+                        <td><input type="radio" name="gestion" id="estatal_gestion">Estatal</td>
+                        <td><input type="radio" name="gestion" id="privada_gestion">Privada</td>
+                    </tr>
+                    <tr>
+                        <td>Nombre escuela</td>
+                        <td><input type="text" name="nombre_escuela" id="nombre_escuela" placeholder="Nombre de la escuela"></td>
+                        <td></td>
+                        <td>N° </td>
+                        <td><input type="number" name="numero_escuela" id="numero_escuela"></td>
+                    </tr>
+                    <tr>
+                        <td>A completar por el establecimiento:</td>
+                        <td>Clave provincial:</td>
+                        <td><input type="text" name="clave_p" id="clave_p"></td>
+                        <td>CUE: </td>
+                        <td><input type="text" name="CUE" id="cue"></td>
+                    </tr>
+                </table>
+            </fieldset>
+            <fieldset>
+                <legend>Datos del establecimiento de procedencia</legend>
+                <table>
+                    <tr>
+                        <td><h3>(Completar solo si el año pasado o este año asistió a otro establecimiento)</h3></td>
+                    </tr>
+                </table>
+            </fieldset>
+            <input type="submit" value="Enviar">
+        </form>
+    </div>
+    <script src="funcion.js"></script>
+    <script src="nacimiento.js"></script>
+    <script src="otro_formulario.js"></script>
+</body>
+</html>

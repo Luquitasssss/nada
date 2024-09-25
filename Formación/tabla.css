@@ -1,0 +1,77 @@
+h1{
+    font-size: 45px;
+    text-align: center;
+}
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    background-color: whitesmoke;
+    text-align: center;
+}
+
+.header-green {
+    background-color: #9bbb59;
+    color: #fff;
+    font-weight: bold;
+}
+
+.header-yellow {
+    background-color: #ffd966;
+    color: #000;
+    font-weight: bold;
+}
+
+.header-grey {
+    background-color: #bfbfbf;
+    color: #000;
+    font-weight: bold;
+    width: 15rem;
+    height: 20px;
+}
+
+.header-blue {
+    background-color: #4f81bd;
+    color: #fff;
+    font-weight: bold;
+}
+.tarjeta {
+    background-color: whitesmoke;
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin: 10px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.tarjeta:hover {
+    transform: scale(1.01);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+.tarjeta .close {
+    display: none;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 20px;
+}
+.tarjeta.expandida .close {
+    display: block;
+}
+.tarjeta-content {
+    display: none;
+    transition: max-height 0.3s ease-out;
+}
+.tarjeta.expandida .tarjeta-content {
+    display: block;
+}

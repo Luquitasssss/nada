@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escuela de Enseñanza Secundaria Técnica N°1 Chascomús</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Estilos personalizados -->
+    <style>
+        /* Estilos adicionales si es necesario */
+        .navbar {
+            background-color: rgb(0, 0, 48);
+        }
+        .navbar-nav .nav-link {
+            color: #fff !important;
+        }
+        .navbar-nav .nav-link:hover {
+            color: #f0f0f0 !important;
+        }
+        .content {
+            padding: 40px 0;
+        }
+        .custom-card {
+            transition: all 0.3s;
+        }
+        .custom-card:hover {
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        }
+        .imgimg {
+            width: 100%;
+            height: auto;
+        }
+        .dropdown-menu a:hover {
+            background-color: #f1f1f1 !important;
+        }
+        /* Estilo de la barra de desplazamiento */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgb(0, 0, 48);
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#">
+            <img src="logo.png" alt="Logo" height="40">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Acerca de</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Servicios
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Servicio 1</a>
+                        <a class="dropdown-item" href="#">Servicio 2</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contacto</a>
+                </li>
+            </ul>
+            <form class="form-inline">
+                <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
+                <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Buscar</button>
+            </form>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container content">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h1>Bienvenidos a la Escuela de Enseñanza Secundaria Técnica N°1 de Chascomús</h1>
+                <p>Una institución dedicada a brindar educación técnica de calidad, formando profesionales preparados para los desafíos del futuro.</p>
+            </div>
+        </div>
+        <!-- Tarjetas de información -->
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <div class="card custom-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Aniversario 20</h5>
+                        <p class="card-text">Celebramos 20 años de educación técnica y profesional.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card custom-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Servicios Hospitalarios</h5>
+                        <p class="card-text">Proveemos soporte técnico a instalaciones hospitalarias.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card custom-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Aniversario 50</h5>
+                        <p class="card-text">Celebramos 50 años de historia formando profesionales.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
